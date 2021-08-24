@@ -1,2 +1,4 @@
 # sword_means_offer_v1
 剑指offer题目python版
+
+以00_开头的算法是错误的
