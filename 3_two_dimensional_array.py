@@ -9,6 +9,9 @@
 def index(t_d_a, row, col, data):
     if not t_d_a:
         return -1, -1
+    # 选择右上角或者左下角的数据进行比较
+    # 如果选在右上角，比该数字大，那只能往下找，如果小，往左找
+    # 如果选在左下角，比该数字大，那只能往右找，如果小，往上找
     index_x = row - 1
     index_y = 0
     while index_x >= 0 and index_y <= col - 1:

@@ -40,3 +40,32 @@ def min(l):
 
 print min([4, 5, 6, 7, 8, 2, 3])
 print min([1, 0, 1, 1, 1])
+
+
+def b_search(l, v, start, end):
+    if start >= end:
+        return None
+
+    mid = (start + end) / 2
+    if v == l[mid]:
+        return mid
+    elif v > l[mid]:
+        start = mid + 1
+    else:
+        end = mid - 1
+    return b_search(l, v, start, end)
+
+
+def b_search_while(l, v, start, end):
+    while start < end:
+        mid = (start + end) / 2
+        if v == l[mid]:
+            return mid
+        elif v > l[mid]:
+            start = mid + 1
+        else:
+            end = mid - 1
+    return None
+
+
+print b_search_while([2, 5, 9, 11], 9, 0, 3)

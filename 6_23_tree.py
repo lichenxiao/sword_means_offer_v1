@@ -7,6 +7,7 @@
 # 红黑树，树中的节点定义为红黑两种颜色，通过规则确保，从根节点到叶节点最长的路径的长度不超过最短路径的两倍
 # c++ STl中set multiset map multimap都是通过红黑树实现
 # 最大堆，最小堆 快速找到最大值或者最小值的问题可以用堆来实现
+# 6、重建二叉树，通过前序和中序遍历的结果，重建二叉树
 # 18、判断b树是不是a树的子树
 # 23、从上到下打印二叉树 -》层序遍历
 
@@ -138,7 +139,10 @@ class BinaryTree:
             print myStack2.pop().data,
 
     def level_queue(self, root):
-        """利用队列实现树的层次遍历"""
+        """
+        23
+        利用队列实现树的层次遍历
+        """
         if root == None:
             return
         myQueue = []
@@ -174,6 +178,7 @@ class BinaryTree:
 
     def construct_tree(self, preorder, inorder):
         """
+        6
         通过先序和中序构建二叉树
         :return:
         """

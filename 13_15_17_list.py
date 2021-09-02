@@ -4,7 +4,6 @@
 # @file: 7_list.py
 # @time: 2021/4/5 6:28 下午
 # @desc: 链表的基本操作：
-# 5、从尾到头打印链表 递归
 # 13、O(1)时间删除链表节点，入参：节点的指针
 # 15、链表中倒数第k个节点
 # 16、反转链表
@@ -92,7 +91,8 @@ class LinkedList(object):
     def remove_node(self, delete_node):
         """
         13
-        使用O(1)的时间复杂度，删除node指向的节点
+        使用O(1)的时间复杂度，删除node指向的节点，
+        将节点的value复制到改节点的下一个节点，删除本节点
         无法保证节点是否在链表中
         """
         if not self.head:
@@ -115,36 +115,11 @@ class LinkedList(object):
         if delete_node:
             del delete_node
 
-    def print_reverse(self):
-        """
-        用栈实现
-        栈：先进后出
-        :return:
-        """
-        l = []
-        p = self.head
-        while p:
-            l.append(p.data)
-            p = p.next
-        while l:
-            data = l.pop()
-            print data
-
-    def print_reverse_recursively(self):
-        """
-        用递归实现
-        :return:
-        """
-
-        def _print_reverse_recursively(head):
-            if head:
-                if head.next:
-                    _print_reverse_recursively(head.next)
-                print head.data
-
     def the_last_k_node(self, k):
         """
         15、链表中倒数第k个节点
+        两个指针，一个先走k步
+        然后再一起走，先走的到达尾结点，后走的就到达倒数的第K个节点
         """
         if k <= 0:
             return False
@@ -234,7 +209,7 @@ def merge_to_sorted_list_v2(l1, l2):
     return p_head
 
 
-def test_merge():
+def a_test_merge():
     node1 = Node(1)
     node2 = Node(2)
     node3 = Node(3)
@@ -295,4 +270,24 @@ def get_list():
 
 
 if __name__ == '__main__':
-    test_merge()
+    # test_merge()
+    node1 = Node(1)
+    node2 = Node(2)
+    node3 = Node(3)
+    node4 = Node(4)
+    node5 = Node(5)
+
+    node1.next = node2
+    node2.next = node3
+    node3.next = node4
+    node4.next = node5
+
+    l = LinkedList(node1)
+    print 'len', len(l)
+    print 'list', l
+    # l.append(10)
+    # print 'list', l
+    # l.remove_data(4)
+    # print 'list', l
+    l.print_reverse_recursively()
+    l.print_reverse()
